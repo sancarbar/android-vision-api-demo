@@ -34,6 +34,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -77,6 +78,8 @@ public class MainActivity
 
     private Bitmap imageBitmap;
 
+    Button sendButton;
+
     @Override
     protected void onCreate( Bundle savedInstanceState )
     {
@@ -99,6 +102,7 @@ public class MainActivity
         mImageDetails = findViewById( R.id.image_details );
         mMainImage = findViewById( R.id.main_image );
         spinner = findViewById( R.id.detection_options );
+        sendButton = findViewById( R.id.send_button );
 
         ArrayAdapter<CharSequence> adapter =
             ArrayAdapter.createFromResource( this, R.array.image_detection_options_array,
@@ -202,6 +206,7 @@ public class MainActivity
     {
         if ( imageBitmap != null )
         {
+            sendButton.setEnabled( false );
             callCloudVision( imageBitmap, type );
         }
         else

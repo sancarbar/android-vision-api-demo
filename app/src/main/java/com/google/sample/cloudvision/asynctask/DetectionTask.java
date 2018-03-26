@@ -2,6 +2,7 @@ package com.google.sample.cloudvision.asynctask;
 
 import android.os.AsyncTask;
 import android.util.Log;
+import android.widget.Button;
 import android.widget.TextView;
 import com.google.api.client.googleapis.json.GoogleJsonResponseException;
 import com.google.api.services.vision.v1.Vision;
@@ -14,7 +15,7 @@ import java.lang.ref.WeakReference;
 
 /**
  * @author Santiago Carrillo
- * 3/26/18.
+ *         3/26/18.
  */
 
 
@@ -63,6 +64,9 @@ public abstract class DetectionTask
         {
             TextView imageDetail = activity.findViewById( R.id.image_details );
             imageDetail.setText( result );
+            Button sendButton = activity.findViewById( R.id.send_button );
+            sendButton.setEnabled( true );
+
         }
     }
 
